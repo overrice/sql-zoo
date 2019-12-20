@@ -21,18 +21,15 @@ FROM world
 WHERE name IN ('France','Germany','Italy')
 
 -- Show the countries which have a name that includes the word 'United'
-SELECT name
-FROM world
+SELECT name FROM world
 WHERE name LIKE '%United%'
 
 -- Show the countries that are big by area or big by population. Show name, population and area
-SELECT name , population , area
-FROM world
+SELECT name , population , area FROM world
 WHERE area >= 3000000 OR population >= 250000000
 
 -- Exclusive OR (XOR). Show the countries that are big by area (more than 3 million) or big by population (more than 250 million) but not both. Show name, population and area
-SELECT name , population , area
-FROM world
+SELECT name , population , area FROM world
 WHERE area >= 3000000 XOR population >= 250000000
 
 -- For South America show population in millions and GDP in billions both to 2 decimal places
@@ -46,18 +43,15 @@ FROM world
 WHERE gdp >= 1000000000000
 
 -- Show the name and capital where the name and the capital have the same number of characters
-SELECT name,capital
-FROM world
+SELECT name,capital FROM world
 WHERE LENGTH(name) = LENGTH(capital)
 
 -- Show the name and the capital where the first letters of each match. Don't include countries where the name and the capital are the same word
-SELECT name, capital
-FROM world
+SELECT name, capital FROM world
 WHERE LEFT(name,1) = LEFT(capital,1) AND name != capital
 
 -- Find the country that has all the vowels and no spaces in its name
-SELECT name
-FROM world
+SELECT name FROM world
 WHERE name NOT LIKE '% %'
   AND name LIKE '%a%'
   AND name LIKE '%e%'

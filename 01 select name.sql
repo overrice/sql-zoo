@@ -40,26 +40,21 @@ SELECT name FROM world
 WHERE name LIKE '____'
 
 -- Find the country where the name is the capital city
-SELECT name
-FROM world
+SELECT name FROM world
 WHERE name LIKE capital
 
 -- Find the country where the capital is the country plus "City"
-SELECT name
-FROM world
+SELECT name FROM world
 WHERE capital LIKE concat(name,' City')
 
 -- Find the capital and the name where the capital includes the name of the country
-SELECT capital, name
-FROM world
+SELECT capital, name FROM world
 WHERE capital LIKE concat('%',name,'%')
 
 -- Find the capital and the name where the capital is an extension of name of the country
-SELECT capital, name
-FROM world
+SELECT capital, name FROM world
 WHERE capital LIKE concat(name,'_%')
 
 -- Show the name and the extension where the capital is an extension of name of the country
-SELECT name , REPLACE(capital,name,'') as extension
-FROM world
+SELECT name , REPLACE(capital,name,'') as extension FROM world
 WHERE capital LIKE concat(name,'_%')
